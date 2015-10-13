@@ -1,4 +1,7 @@
-<p> STYUFFFF </p>
+
 <h1> <%=@lesson.name %> </h1>
+<h2>Lesson # <%=@lesson.number %></h2>
 
   <p><%=@lesson.content %></p>
+
+<%= link_to "Next", lesson_path(@lesson.next) %>
