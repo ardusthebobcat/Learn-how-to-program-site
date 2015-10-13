@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
-  resources :languages
-    #resources :lessons
+  resources :languages do
+    resources :lessons
+  end
 end

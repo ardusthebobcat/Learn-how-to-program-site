@@ -1,0 +1,7 @@
+<h1> <%= @language.name %> </h1>
+
+<% if @language.lessons %>
+  <% @language.lessons.each do |lesson| %>
+    <li><%= lesson.name %></li>
+  <% end %>
+<% end %>
