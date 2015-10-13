@@ -2,5 +2,7 @@
 
 <% @languages.each do |language| %>
   <p><%= link_to language.name, language_path(language.id) %> --
-    <%= link_to "Add", new_language_lesson_path(language) %> --     <%= link_to "Edit", edit_language_path(language) %> </p>
+    <%= link_to "Add", new_language_lesson_path(language) %> --     <%= link_to "Edit", edit_language_path(language) %> -- <%= link_to "Delete", language_path(language),
+              :data => {:confirm => "Are you sure?",
+                        :method => "delete"} %></p>
 <% end %>
