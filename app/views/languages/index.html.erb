@@ -2,5 +2,5 @@
 
 <% @languages.each do |language| %>
   <p><%= link_to language.name, language_path(language.id) %>
-  </p>
+    <%= link_to "Add", new_language_lesson_path(language) %></p>
 <% end %>

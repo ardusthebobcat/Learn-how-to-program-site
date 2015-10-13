@@ -2,6 +2,8 @@
 
 <% if @language.lessons %>
   <% @language.lessons.each do |lesson| %>
-    <li><%= lesson.name %></li>
+    <li><%= lesson.name %> </li>
   <% end %>
 <% end %>
+
+<%= render 'form' %>

@@ -1,11 +1,22 @@
 class LessonsController < ApplicationController
-  def index
+
+  def new
     @language = Language.find(params[:language_id])
-    render :index
+    @lesson = @language.lessons.new
+  end
+
+  def create
+    @language = Language.find(params[:language_id])
+    @lesson = @language.lessons.new(lesson_params)
+    if @lesson.save
+      redirect_to language_path(@lesson.language)
+    else
+      render :new
+    end
   end
 
   private
-  def language_params
-    params.require(:language).permit(:name)
+  def lesson_params
+    params.require(:lesson).permit(:name, :content)
   end
 end
