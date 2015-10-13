@@ -4,6 +4,20 @@ class LanguagesController < ApplicationController
     render :index
   end
 
+  def new
+    @language = Language.new
+    render :new
+  end
+
+  def create
+    @language = Language.new(language_params)
+    if @language.save
+      redirect_to language_path(@language)
+    else
+      render :new
+    end
+  end
+
   def show
     @language = Language.find(params[:id])
     render :show
