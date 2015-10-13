@@ -2,6 +2,8 @@
 
 <% if @language.lessons %>
   <% @language.lessons.each do |lesson| %>
-    <li><%= link_to lesson.name, language_lesson_path(lesson.language_id, lesson.id) %> --- <%= link_to "Edit", edit_language_lesson_path(lesson.language_id, lesson.id) %></li>
+    <li><%= link_to lesson.name, language_lesson_path(lesson.language_id, lesson.id) %> --- <%= link_to "Edit", edit_language_lesson_path(lesson.language_id, lesson.id) %> --- <%= link_to "Delete", language_lesson_path(lesson.language_id, lesson.id),
+              :data => {:confirm => "Are you sure?",
+                        :method => "delete"} %></li>
   <% end %>
 <% end %>

@@ -38,6 +38,13 @@ class LessonsController < ApplicationController
     end
   end
 
+  def destroy
+    @language = Language.find(params[:language_id])
+    @lesson = Lesson.find(params[:id])
+    @lesson.destroy
+    redirect_to language_path(@lesson.language)
+  end
+
   private
   def lesson_params
     params.require(:lesson).permit(:name, :content)
