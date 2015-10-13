@@ -22,6 +22,22 @@ class LessonsController < ApplicationController
     end
   end
 
+  def edit
+    @language = Language.find(params[:language_id])
+    @lesson = Lesson.find(params[:id])
+    render :edit
+  end
+
+  def update
+    @language = Language.find(params[:language_id])
+    @lesson = Lesson.find(params[:id])
+    if @lesson.update(lesson_params)
+      redirect_to language_path(@lesson.language)
+    else
+      render :edit
+    end
+  end
+
   private
   def lesson_params
     params.require(:lesson).permit(:name, :content)
