@@ -5,6 +5,13 @@ class LessonsController < ApplicationController
     @lesson = @language.lessons.new
   end
 
+  def show
+    @language = Language.find(params[:language_id])
+    @lesson = Lesson.find(params[:id])
+
+    render :show
+  end
+
   def create
     @language = Language.find(params[:language_id])
     @lesson = @language.lessons.new(lesson_params)
