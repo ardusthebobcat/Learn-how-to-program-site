@@ -7,9 +7,10 @@ class Lesson < ActiveRecord::Base
 
   def next
     if self == Lesson.last
-      return Lesson.first
+      return Lesson.first.id
     else
-      return Lesson.where("number > ?", self.number).first
+      debugger
+      return Lesson.where("number > ?", self.number).first.id
     end
   end
 end
