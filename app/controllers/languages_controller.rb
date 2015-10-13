@@ -8,4 +8,23 @@ class LanguagesController < ApplicationController
     @language = Language.find(params[:id])
     render :show
   end
+
+  def edit
+    @language = Language.find(params[:id])
+    render :edit
+  end
+
+  def update
+    @language = Language.find(params[:id])
+    if @language.update(language_params)
+      redirect_to languages_path
+    else
+      render :edit
+    end
+  end
+
+  private
+  def language_params
+    params.require(:language).permit(:name)
+  end
 end
